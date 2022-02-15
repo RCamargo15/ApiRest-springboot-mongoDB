@@ -1,10 +1,13 @@
 package com.RCamargo15.ApiRestfulSpringAndMongo.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 import com.RCamargo15.ApiRestfulSpringAndMongo.dto.AuthorDTO;
+import com.RCamargo15.ApiRestfulSpringAndMongo.dto.CommentDTO;
 
 public class Post implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -14,6 +17,8 @@ public class Post implements Serializable {
 	private String title;
 	private String body;
 	private AuthorDTO author;
+	
+	private List<CommentDTO> comments = new ArrayList<>();
 
 	public Post() {
 
@@ -67,6 +72,10 @@ public class Post implements Serializable {
 	public void setAuthor(AuthorDTO author) {
 		this.author = author;
 	}
+	
+	public List<CommentDTO> getComments() {
+		return comments;
+	}
 
 	@Override
 	public int hashCode() {
@@ -84,5 +93,4 @@ public class Post implements Serializable {
 		Post other = (Post) obj;
 		return Objects.equals(id, other.id);
 	}
-
 }
